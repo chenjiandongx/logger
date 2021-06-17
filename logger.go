@@ -187,7 +187,7 @@ func New(opt Options) Logger {
 	return Logger{sugared: logger.Sugar()}
 }
 
-var std = New(Options{Stdout: true})
+var std = New(Options{Stdout: true, ConsoleMode: true})
 
 // StandardLogger returns the standard logger with stdout output.
 func StandardLogger() Logger {
