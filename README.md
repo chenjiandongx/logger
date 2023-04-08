@@ -34,6 +34,9 @@ type Options struct {
 
 	// Level is a logging priority. Higher levels are more important.
 	Level Level
+
+	// Skip is the number of callers skipped by caller annotation
+	Skip int
 }
 ```
 

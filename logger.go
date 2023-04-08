@@ -68,6 +68,9 @@ type Options struct {
 
 	// Level is a logging priority. Higher levels are more important.
 	Level Level
+
+	// Skip is the number of callers skipped by caller annotation
+	Skip int
 }
 
 type Logger struct {
@@ -183,7 +186,7 @@ func New(opt Options) Logger {
 	}
 
 	core := zapcore.NewCore(encoder, w, zapcore.Level(opt.Level))
-	logger := zap.New(core, zap.AddCaller(), zap.AddCallerSkip(1))
+	logger := zap.New(core, zap.AddCaller(), zap.AddCallerSkip(opt.Skip))
 	return Logger{sugared: logger.Sugar()}
 }
 
